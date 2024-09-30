@@ -16,7 +16,7 @@ function Projects() {
 
   return (
     <Stack
-      spacing={{ sm: 3, lg: 10 }}
+      spacing={{ xs: 4, sm: 3, lg: 10 }}
       sx={{
         justifyContent: "space-around",
         alignItems: "center",
@@ -44,12 +44,13 @@ function Projects() {
                     borderRadius: "10px",
                     width: {
                       xs: "100%", // Full width on small screens
-                      sm: "450px", // Fixed width on small screens
+                      sm: "300px", // Fixed width on small screens
                       md: "600px", // Adjust width for medium screens
                     },
                     height: {
                       xs: "300px", // Adjust height for small screens
-                      sm: "400px", // Adjust height for medium screens
+                      sm: "220px", // Adjust height for medium screens
+                      lg: "400px",
                     },
                   }}
                 >
@@ -82,7 +83,7 @@ function Projects() {
                     <Button
                       endIcon={<ArrowRightAltIcon />}
                       sx={{
-                        width: "40%",
+                        width: { xs: "50%", lg: "40%" },
                         textTransform: "none",
                         padding: "10px",
                         borderRadius: "25px",
@@ -90,6 +91,8 @@ function Projects() {
                       }}
                       variant="contained"
                       disableElevation
+                      component={motion.button}
+                      whileHover={{ y: -2 }}
                     >
                       Learn More
                     </Button>

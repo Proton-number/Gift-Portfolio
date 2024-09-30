@@ -8,8 +8,7 @@ function About() {
       sx={{
         justifyContent: "center",
         alignItems: "center",
-        // paddingTop: { xs: "60px", sm: 0 },
-        height: "100vh",
+        height: { lg: "100vh" },
       }}
     >
       <Typography variant="h2">About me</Typography>
@@ -31,6 +30,10 @@ function About() {
           }}
         />
         <Stack
+          component={motion.div}
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 1 }}
           spacing={2}
           sx={{
             width: { sm: "38%", lg: "35%" },

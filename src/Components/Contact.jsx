@@ -4,6 +4,8 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import { appStore } from "../Store/appStore";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { motion } from "framer-motion";
+import { useBattery } from "@uidotdev/usehooks";
 
 function Contact() {
   const {
@@ -18,6 +20,7 @@ function Contact() {
     open,
     handleClose,
   } = appStore();
+  const { level } = useBattery();
 
   return (
     <Stack
@@ -26,6 +29,7 @@ function Contact() {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
+        padding: { xs: "20px", sm: 0 },
       }}
     >
       <Typography variant="h2">Contact me</Typography>
@@ -76,6 +80,9 @@ function Contact() {
               width: "30%", // Adjust the button width
               backgroundColor: "#7cb4c4",
             }}
+            component={motion.button}
+            whileHover={{ y: -2 }}
+            disableElevation
           >
             Send
           </LoadingButton>
@@ -107,6 +114,7 @@ function Contact() {
               <Typography sx={{ color: "black" }}>Github</Typography>
             </a>
           </Stack>
+          <Typography> Battery: {level * 100.0}%</Typography>
         </Stack>
       </Stack>
       <Snackbar
@@ -114,7 +122,7 @@ function Contact() {
         autoHideDuration={2800}
         onClose={handleClose}
         message="Message sent"
-        sx={{ width: { xs: "30%", sm: "50%", lg: "100%" } }}
+        sx={{ width: { xs: "30%", sm: "50%", lg: "fit-content" } }}
       />
     </Stack>
   );

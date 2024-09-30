@@ -8,6 +8,10 @@ function Nav() {
 
   return (
     <AppBar
+      initial={{ display: "none" }}
+      animate={{ display: "block" }}
+      transition={{ delay: 3.5 }}
+      component={motion.div}
       id="desktopNav"
       sx={{
         backgroundColor: "black",
@@ -74,7 +78,16 @@ function Nav() {
             rel="noopener noreferrer"
             style={{ textDecoration: "none", color: "inherit" }}
           >
-            <Typography>Resume</Typography>
+            <Typography
+              component={motion.p}
+              whileHover={{
+                textDecoration: "underline",
+                color: "lightBlue",
+                y: -4,
+              }}
+            >
+              Resume
+            </Typography>
           </a>
         </Stack>
       </Toolbar>

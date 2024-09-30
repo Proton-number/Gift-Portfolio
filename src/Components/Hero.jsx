@@ -11,8 +11,9 @@ function Hero() {
       sx={{
         justifyContent: "space-around",
         alignItems: "center",
-        height: "100vh",
         paddingTop: { sm: "50px", lg: 0 },
+        paddingBottom: { xs: "80px", sm: 0 },
+        height: "100vh",
       }}
     >
       <>
@@ -25,9 +26,10 @@ function Hero() {
       </>
       <Stack
         sx={{
-          alignItems: "left",
+          textAlign: { xs: "center", lg: "initial" },
+          alignItems: { xs: "center", lg: "initial" },
         }}
-        spacing={{ lg: 2 }}
+        spacing={{ xs: 1, lg: 2 }}
       >
         <Typography variant="h4">Hey, I'm</Typography>
         <Typography sx={{ fontWeight: "bold" }} variant="h2">
@@ -42,9 +44,12 @@ function Hero() {
           sx={{
             textTransform: "none",
             backgroundColor: "#7cb4c4",
-            width: "20%",
+            width: { xs: "40%", sm: "20%" },
           }}
           disableElevation
+          component={motion.button}
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.05 }}
         >
           Contact Info
         </Button>

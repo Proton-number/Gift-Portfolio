@@ -67,18 +67,6 @@ function MobileNav() {
             <Typography
               sx={{ cursor: "pointer" }}
               component={motion.p}
-              whileHover={{
-                textDecoration: "underline",
-                color: "lightBlue",
-                y: -4,
-              }}
-            >
-              {" "}
-              Proficiencies
-            </Typography>
-            <Typography
-              sx={{ cursor: "pointer" }}
-              component={motion.p}
               onClick={() => scrollToSection("works")}
               whileHover={{
                 textDecoration: "underline",

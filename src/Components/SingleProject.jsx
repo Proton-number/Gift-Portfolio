@@ -5,6 +5,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../client";
 import { Box, Typography, Stack } from "@mui/material";
 import { PortableText } from "@portabletext/react";
+import Loading from "../Components/Loading";
 
 const builder = imageUrlBuilder(sanityClient);
 
@@ -67,7 +68,7 @@ function SingleProject() {
           height: "100vh",
         }}
       >
-        <Typography variant="h6">Loading...</Typography>
+        <Loading />
       </Box>
     );
   }

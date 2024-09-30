@@ -14,12 +14,13 @@ export const appStore = create((set) => ({
   setEmail: (email) => set({ email }),
   message: "",
   setMessage: (message) => set({ message }),
-  sendEmail: async (name, email, message, open) => {
+  sendEmail: async (name, email, message) => {
     set({ sending: true });
     if (!name || !email || !message) {
       return;
     }
     try {
+      //template parameters to send the email
       const templateParams = {
         user_name: name,
         user_email: email,

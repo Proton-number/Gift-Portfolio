@@ -2,8 +2,10 @@ import React, { lazy, Suspense } from "react";
 import "./App.css";
 import Nav from "./Components/Nav";
 import MobileNav from "./Components/MobileNav";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider, Box } from "@mui/material";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoadingComponent from "./Components/LoadingComponent";
+import { motion } from "framer-motion";
 
 //lazy loading
 const SingleProject = lazy(() => import("./Components/SingleProject"));
@@ -21,14 +23,21 @@ function App() {
       <Router>
         {" "}
         {/* Move Router here to wrap the entire app */}
-        <Nav />
-        <MobileNav />
-        <Suspense fallback={null}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/singleProject/:slug" element={<SingleProject />} />
-          </Routes>
-        </Suspense>
+        <LoadingComponent />
+        <Box
+          initial={{ display: "none" }}
+          animate={{ display: "block" }}
+          component={motion.div}
+        >
+          <Nav />
+          <MobileNav />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/singleProject/:slug" element={<SingleProject />} />
+            </Routes>
+          </Suspense>
+        </Box>
       </Router>
     </ThemeProvider>
   );
