@@ -77,7 +77,7 @@ function Projects() {
                     {project?.description}
                   </Typography>
                   <Link
-                    to={"/singleProject/" + project?.slug?.current}
+                    to={`/singleProject/${project?.slug?.current}`}
                     key={project?.slug?.current}
                   >
                     <Button
