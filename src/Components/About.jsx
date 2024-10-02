@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 function About() {
   return (
     <Stack
+      spacing={2}
       sx={{
         justifyContent: "center",
         alignItems: "center",
@@ -40,13 +41,18 @@ function About() {
           }}
         >
           <Typography>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Blanditiis, incidunt mollitia facere ea minus harum velit earum,
+            I am a certified Data Scientist and Machine Learning Engineer with
+            2+ years of freelancing experience, specializing in predictive
+            modeling, data mining, and Python. I also teach coding to learners
+            of all ages, using Scratch and Python, and currently tutor with
+            Coding Kids Africa.
           </Typography>
           <Typography>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
-            ullam minima. Ea deleniti doloremque enim, blanditiis repudiandae
-            autem illum cumque, saepe assumenda amet nam magni
+            I have developed a variety of innovative machine learning systems,
+            from predicting Premier League match outcomes to building web apps
+            that support farmers in maximizing crop yield. My expertise spans
+            multiple areas of data science, including Deep Learning, Natural
+            Language Processing (NLP), Computer Vision (CV), and Generative AI.
           </Typography>
         </Stack>
       </Stack>
@@ -57,14 +63,16 @@ function About() {
         }}
       >
         <Typography variant="h6">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro,
-          delectus qui beatae consequatur officiis aut, hic quas animi assumenda
-          eum eligendi, ea sapiente nihil quis unde nesciunt magnam
-          necessitatibus repudiandae. Nulla harum debitis quibusdam
-          exercitationem aperiam! Ducimus delectus culpa placeat saepe
-          architecto! Atque nostrum maxime ratione aperiam perferendis
-          praesentium animi at. Harum consectetur unde ipsam rem quos aliquam
-          cum sequi.
+          I am also an experienced technical writer, consistently producing
+          articles on machine learning and AI on Medium. My articles have gained
+          significant attention, ranking on Google’s search results, and have
+          helped many in the data science community to understand complex topics
+          in a simpler, more approachable way. With a strong foundation in
+          Python and Data Science and AI tools such as TensorFlow, PyTorch,
+          Scikit-learn, Beautiful Soup, Microsoft Excel, PostgreSQL, Tableau,
+          and other AI development technologies, I am constantly expanding my
+          skill set, working on cutting-edge technologies to drive meaningful
+          change.
         </Typography>
       </Box>
     </Stack>
