@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typography, Stack, TextField, Snackbar } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { appStore } from "../Store/appStore";
@@ -6,6 +6,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { motion } from "framer-motion";
 import { useBattery } from "@uidotdev/usehooks";
+("date-");
 
 function Contact() {
   const {
@@ -19,8 +20,19 @@ function Contact() {
     sendEmail,
     open,
     handleClose,
+    formattedDate,
+    formattedTime,
+    setCurrentDateTime,
   } = appStore();
   const { level } = useBattery();
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <Stack
@@ -115,6 +127,8 @@ function Contact() {
             </a>
           </Stack>
           <Typography> Battery: {level * 100.0}%</Typography>
+          <Typography> {formattedDate}</Typography>
+          <Typography> {formattedTime}</Typography>
         </Stack>
       </Stack>
       <Snackbar
