@@ -4,6 +4,8 @@ import { Box, Typography } from "@mui/material";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../client";
 
+
+
 // Initialize builder
 const builder = imageUrlBuilder(sanityClient);
 
@@ -174,16 +176,18 @@ export const appStore = create((set) => ({
 
   //logic for time
   currentDateTime: new Date(),
-  setCurrentDateTime: (currentDateTime) => set({ currentDateTime }),
-  dateOptions: {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  formattedDate: "", // Initialize as an empty string
+
+  // Action to update the formattedDate
+  updateFormattedDate: () => {
+    set((state) => ({
+      formattedDate: new Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      }).format(state.currentDateTime),
+    }));
   },
-
-  timeOptions: { hour: "2-digit", minute: "2-digit", second: "2-digit" },
-
-  formattedDate: currentDateTime.toLocaleString("en-US", dateOptions),
-  formattedTime: currentDateTime.toLocaleString("en-US", timeOptions),
 }));

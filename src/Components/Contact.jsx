@@ -21,18 +21,14 @@ function Contact() {
     open,
     handleClose,
     formattedDate,
-    formattedTime,
-    setCurrentDateTime,
+    updateFormattedDate,
   } = appStore();
   const { level } = useBattery();
 
+  // Update the formattedDate whenever the component mounts
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentDateTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
+    updateFormattedDate();
+  }, [updateFormattedDate]);
 
   return (
     <Stack
@@ -128,7 +124,6 @@ function Contact() {
           </Stack>
           <Typography> Battery: {level * 100.0}%</Typography>
           <Typography> {formattedDate}</Typography>
-          <Typography> {formattedTime}</Typography>
         </Stack>
       </Stack>
       <Snackbar
