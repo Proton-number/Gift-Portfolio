@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -7,16 +7,17 @@ import {
   Drawer,
   Stack,
   AppBar,
-  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { appStore } from "../Store/appStore";
 import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 function MobileNav() {
   const [isDrawerOpen, setisDrawerOpen] = useState(false);
   const { scrollToSection } = appStore();
+  const location = useLocation();
 
   return (
     <>
@@ -50,6 +51,26 @@ function MobileNav() {
             </IconButton>
           </Toolbar>
           <Stack spacing={4}>
+            {location.pathname !== "/" && (
+              <Link
+                to={"/"}
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <Typography
+                  sx={{
+                    cursor: "pointer",
+                  }}
+                  component={motion.p}
+                  whileHover={{
+                    textDecoration: "underline",
+                    color: "lightBlue",
+                    y: -4,
+                  }}
+                >
+                  Home
+                </Typography>
+              </Link>
+            )}
             <Typography
               onClick={() => scrollToSection("about")}
               sx={{

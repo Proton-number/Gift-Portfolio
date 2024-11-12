@@ -2,9 +2,11 @@ import React from "react";
 import { AppBar, Toolbar, Typography, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import { appStore } from "../Store/appStore";
+import { Link, useLocation } from "react-router-dom";
 
 function Nav() {
   const { scrollToSection } = appStore();
+  const location = useLocation();
 
   return (
     <AppBar
@@ -33,6 +35,23 @@ function Nav() {
           sx={{ alignItems: "center", flexGrow: 0.2 }}
           spacing={{ sm: 8, lg: 14 }}
         >
+          {location.pathname !== "/" && (
+            <Link to={"/"} style={{ color: "inherit", textDecoration: "none" }}>
+              <Typography
+                sx={{
+                  cursor: "pointer",
+                }}
+                component={motion.p}
+                whileHover={{
+                  textDecoration: "underline",
+                  color: "lightBlue",
+                  y: -4,
+                }}
+              >
+                Home
+              </Typography>
+            </Link>
+          )}
           <Typography
             onClick={() => scrollToSection("about")}
             sx={{
@@ -59,7 +78,6 @@ function Nav() {
           >
             Works
           </Typography>
-
           <Typography
             sx={{ cursor: "pointer" }}
             component={motion.p}

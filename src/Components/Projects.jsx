@@ -11,7 +11,7 @@ function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
 
   useEffect(() => {
-    fetchProjects(); // Fetch blog posts when component loads
+    fetchProjects(); // Fetch project posts when component loads
   }, [fetchProjects]);
 
   return (

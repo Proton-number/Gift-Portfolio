@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography, Stack, TextField, Snackbar } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { appStore } from "../Store/appStore";
@@ -30,14 +30,20 @@ function Contact() {
     updateFormattedDate();
   }, [updateFormattedDate]);
 
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+  const validateEmail = (email) => {
+    setEmail(email);
+    setIsEmailValid(emailRegex.test(email));
+  };
   return (
     <Stack
       spacing={9}
       sx={{
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
-        padding: { xs: "20px", sm: 0 },
+        padding: { xs: "20px", sm: "50px", lg: "80px" },
       }}
     >
       <Typography variant="h2">Contact me</Typography>
@@ -48,7 +54,7 @@ function Contact() {
             <TextField
               variant="standard"
               type="name"
-              label="Your Name"
+              placeholder="Your Name"
               color="primary"
               name="user_name"
               value={name}
@@ -56,20 +62,28 @@ function Contact() {
               fullWidth
             />
             <TextField
+              error={!isEmailValid}
               variant="standard"
               type="email"
-              label="Your Email"
+              placeholder="Your Email"
               color="primary"
               name="user_email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => validateEmail(e.target.value)}
               fullWidth
+              helperText={
+                !isEmailValid && (
+                  <Typography sx={{ color: "#cc0000" }} variant="subtitle3">
+                    Please enter a valid email address
+                  </Typography>
+                )
+              }
             />
           </Stack>
           <TextField
             variant="standard"
             type="text"
-            label="Your Message"
+            placeholder="Your Message"
             multiline
             color="primary"
             name="message"
