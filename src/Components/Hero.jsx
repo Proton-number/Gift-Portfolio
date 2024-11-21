@@ -13,7 +13,7 @@ function Hero() {
         alignItems: "center",
         paddingTop: { sm: "50px", lg: 0 },
         paddingBottom: { xs: "80px", sm: 0 },
-        height: "100vh",
+        minHeight: "100vh",
       }}
     >
       <>

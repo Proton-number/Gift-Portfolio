@@ -24,7 +24,7 @@ function SingleProject() {
           justifyContent: "center",
           backgroundColor: "#f2ecff",
           color: "black",
-          height: "100vh",
+          minHeight: "100vh",
         }}
       >
         <Loading />

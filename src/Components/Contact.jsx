@@ -136,7 +136,7 @@ function Contact() {
               <Typography sx={{ color: "black" }}>Github</Typography>
             </a>
           </Stack>
-          <Typography> Battery: {level * 100.0}%</Typography>
+          <Typography> Battery: {level * (100.0).toFixed()}%</Typography>
           <Typography> {formattedDate}</Typography>
         </Stack>
       </Stack>

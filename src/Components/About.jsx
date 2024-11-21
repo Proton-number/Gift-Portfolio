@@ -9,7 +9,7 @@ function About() {
       sx={{
         justifyContent: "center",
         alignItems: "center",
-        height: { lg: "100vh" },
+        minHeight: "100vh",
       }}
     >
       <Typography variant="h2">About me</Typography>
