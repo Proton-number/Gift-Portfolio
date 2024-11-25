@@ -5,10 +5,9 @@ import MobileNav from "./Components/MobileNav";
 import { createTheme, ThemeProvider, Box } from "@mui/material";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingComponent from "./Components/LoadingComponent";
-
-//lazy loading
-const SingleProject = lazy(() => import("./Components/SingleProject"));
-const Home = lazy(() => import("./Components/Home"));
+import Home from "./Components/Home";
+import SingleProject from "./Components/SingleProject";
+import { motion } from "framer-motion";
 
 function App() {
   const theme = createTheme({
@@ -21,17 +20,19 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         {" "}
-        {/* Move Router here to wrap the entire app */}
         <LoadingComponent />
-        <Box>
+        <Box
+          component={motion.div}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3.6 }}
+        >
           <Nav />
           <MobileNav />
-          <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/singleProject/:slug" element={<SingleProject />} />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/singleProject/:slug" element={<SingleProject />} />
+          </Routes>
         </Box>
       </Router>
     </ThemeProvider>

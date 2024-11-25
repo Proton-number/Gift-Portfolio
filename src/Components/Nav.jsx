@@ -10,9 +10,6 @@ function Nav() {
 
   return (
     <AppBar
-      initial={{ display: "none" }}
-      animate={{ display: "block" }}
-      transition={{ delay: 3.5 }}
       component={motion.div}
       id="desktopNav"
       sx={{

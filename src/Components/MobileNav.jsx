@@ -21,7 +21,10 @@ function MobileNav() {
 
   return (
     <>
-      <AppBar id="mobileNav" sx={{ backgroundColor: "black" }}>
+      <AppBar
+        id="mobileNav"
+        sx={{ backgroundColor: "black" }}
+      >
         <Toolbar>
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
             Gift
