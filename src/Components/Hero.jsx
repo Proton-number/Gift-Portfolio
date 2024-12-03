@@ -19,7 +19,7 @@ function Hero() {
       <>
         <Box
           component="img"
-          src={"/Programming-cuate.svg"}
+          src={"/Visual data-cuate.svg"}
           alt="hero-img"
           sx={{ width: { sm: "400px", lg: "400px" }, height: { sm: "400px" } }}
         />
