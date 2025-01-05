@@ -32,7 +32,7 @@ function Hero() {
         spacing={{ xs: 1, lg: 2 }}
       >
         <Typography variant="h4">Hey, I'm</Typography>
-        <Typography sx={{ fontWeight: "bold" }} variant="h2">
+        <Typography  sx={{ fontWeight: "bold" }} variant="h2">
           Gift Ukpoweh{" "}
         </Typography>
         <Typography sx={{ opacity: "70%" }} variant="h6">
